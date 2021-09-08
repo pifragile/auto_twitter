@@ -1,0 +1,5 @@
+env/
+*.csv
+.env
+nft.gif
+shared_nfts.txt
