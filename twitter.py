@@ -5,6 +5,9 @@ import random
 from dotenv import load_dotenv
 import time
 
+# sleep 1 hour to avoid too many tweets in case of failures
+time.sleep(3600)
+
 load_dotenv()
 
 # Consumer keys and access tokens, used for OAuth
@@ -72,13 +75,13 @@ def post_nft():
 
 
 	media_id = api.media_upload('nft.gif', chunked = True, media_category = "tweet_gif").media_id
-	#api.update_status(status, media_ids=[media_id])
+	api.update_status(status, media_ids=[media_id])
 
 
 while True:
 	try:
 		post_nft()
-		time.sleep(random.randint(3600, 14400))
+		time.sleep(random.randint(2 * 3600, 6 * 3600))
 	except Exception as e:
 		print(e)
 		time.sleep(60)
