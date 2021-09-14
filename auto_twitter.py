@@ -70,7 +70,6 @@ def post_nft():
 
 	status = get_post_text(name, opensea_link)
 
-	status='test'
 	api.PostUpdate(status, media=open('nft.gif', 'rb'), media_category='tweet_gif')
 
 
